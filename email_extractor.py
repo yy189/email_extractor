@@ -68,16 +68,14 @@ def extractEmails(siteUrl):
         regex = r"([a-zA-Z0-9_.+-]+@[a-pr-zA-PRZ0-9-]+\.[a-zA-Z0-9-.]+)"
         for email in re.findall(regex, html):
             if email not in allEmails:
-                if verify_email(email):
-                    allEmails.add(email)
+                if not email.endswith(('.', '.png', '.jpg')):
+                    if verify_email(email):
+                        allEmails.add(email)
     except:
         pass
 
 
-
-
-
-siteUrl = "https://onupkeep.com/"
+siteUrl = "https://polymail.io/"
 allIntLinks.add(siteUrl)
 getAllInternalLinks(siteUrl)
 
