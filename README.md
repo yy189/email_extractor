@@ -11,6 +11,8 @@ End Sub
 TO DO:
 
 startup incubators list:
+
 https://www.seed-db.com/accelerators
+
 https://thembaisdead.com/list-of-startup-accelerators-and-incubators/
 
