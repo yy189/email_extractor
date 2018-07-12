@@ -88,7 +88,7 @@ with open(in_path) as f:
     if os.path.isfile(out_path):
         exists = True
         length = len(list(csv.reader(open(out_path))))
-        number_of_rows_to_skip = length if length > 1 else 1
+        number_of_rows_to_skip = length if length > 1 else 1 # length + 1 ??? to skip the last row that might have taken too long
 
     with open(out_path, "a+") as f1:
         fieldnames1 = ['profolio', 'website', 'year', 'emails', 'summary']

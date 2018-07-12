@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54d9373-9df2-488c-af4e-e773ebe3a21c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accelerator&amp;incubator.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y Combinator result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Y Combinator result.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/email_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/result.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +17,8 @@
       <file leaf-file-name="email_extractor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/email_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+            <state relative-caret-position="191">
+              <caret line="90" column="129" selection-start-line="90" selection-start-column="129" selection-end-line="90" selection-end-column="129" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -146,7 +143,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="266" y="111" width="1070" height="698" extended-state="0" />
+    <frame x="148" y="23" width="1070" height="698" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24976167" />
@@ -194,8 +191,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/email_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+        <state relative-caret-position="191">
+          <caret line="90" column="129" selection-start-line="90" selection-start-column="129" selection-end-line="90" selection-end-column="129" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
