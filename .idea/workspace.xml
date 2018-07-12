@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54d9373-9df2-488c-af4e-e773ebe3a21c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accelerator&amp;incubator.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/email_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/result.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="email_extractor.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="email_extractor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/email_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+            <state relative-caret-position="99">
+              <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -25,12 +29,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="195">
-                <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <first_editor relative-caret-position="229">
+                <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               </first_editor>
               <second_editor />
             </state>
@@ -57,14 +61,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/email_extractor.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/email_extractor.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="287" />
-    <option name="y" value="53" />
+    <option name="x" value="148" />
+    <option name="y" value="23" />
     <option name="width" value="1070" />
     <option name="height" value="698" />
   </component>
@@ -142,13 +146,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="287" y="53" width="1070" height="698" extended-state="0" />
+    <frame x="266" y="111" width="1070" height="698" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24976167" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24976167" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23128119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23128119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -178,23 +182,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/email_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="195">
-            <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <first_editor relative-caret-position="229">
+            <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="81" column="17" selection-start-line="81" selection-start-column="17" selection-end-line="81" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

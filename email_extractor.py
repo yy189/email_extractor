@@ -9,7 +9,8 @@ import csv
 import time
 import os
 
-out_path = "result.csv"
+in_path = "Y Combinator.csv"
+out_path = "Y Combinator result.csv"
 
 headers = {"User-Agent": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"}
 
@@ -71,15 +72,15 @@ def extractEmails(siteUrl):
         html = urlopen(req).read().decode("utf-8")
         regex = r"([a-zA-Z0-9_.+-]+@[a-pr-zA-PRZ0-9-]+\.[a-zA-Z0-9-.]+)"
         for email in re.findall(regex, html):
-            if email not in allEmails:
+            if email.lower() not in allEmails:
                 if not email.endswith(('.', '.png', '.jpg', '.JPG', '.jpeg')):
                     # if verify_email(email): # takes a long time
-                        allEmails.add(email)
+                        allEmails.add(email.lower())
     except:
         pass
 
-with open("accelerator&incubator.csv") as f:
-    fieldnames = ['incubator', 'profolio', 'website', 'year', 'summary']
+with open(in_path) as f:
+    fieldnames = ['profolio', 'website', 'year', 'summary']
     reader = csv.DictReader(f, fieldnames=fieldnames)
 
     exists = False
@@ -87,10 +88,10 @@ with open("accelerator&incubator.csv") as f:
     if os.path.isfile(out_path):
         exists = True
         length = len(list(csv.reader(open(out_path))))
-        number_of_rows_to_skip = length if length > 1 else 1  # overwrite the last row
+        number_of_rows_to_skip = length if length > 1 else 1
 
     with open(out_path, "a+") as f1:
-        fieldnames1 = ['incubator', 'profolio', 'website', 'year', 'emails', 'summary']
+        fieldnames1 = ['profolio', 'website', 'year', 'emails', 'summary']
         writer = csv.DictWriter(f1, fieldnames=fieldnames1)
 
         if not exists:
