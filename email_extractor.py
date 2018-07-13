@@ -80,7 +80,7 @@ def extractEmails(siteUrl):
         pass
 
 with open(in_path) as f:
-    fieldnames = ['profolio', 'website', 'year', 'summary']
+    fieldnames = ['portfolio', 'website', 'year', 'summary']
     reader = csv.DictReader(f, fieldnames=fieldnames)
 
     exists = False
@@ -91,7 +91,7 @@ with open(in_path) as f:
         number_of_rows_to_skip = length if length > 1 else 1 # length + 1 ??? to skip the last row that might have taken too long
 
     with open(out_path, "a+") as f1:
-        fieldnames1 = ['profolio', 'website', 'year', 'emails', 'summary']
+        fieldnames1 = ['portfolio', 'website', 'year', 'emails', 'summary']
         writer = csv.DictWriter(f1, fieldnames=fieldnames1)
 
         if not exists:
