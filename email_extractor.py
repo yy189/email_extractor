@@ -6,11 +6,12 @@ import socket
 import smtplib
 import dns.resolver
 import csv
-import time
-import os
+import multiprocessing
 
-in_path = "Y Combinator.csv"
-out_path = "Y Combinator result.csv"
+TIMEOUT = 300
+
+in_path = "ycombinator.csv"
+out_path = "ycombinator_result.csv"
 
 headers = {"User-Agent": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"}
 
@@ -66,58 +67,58 @@ def verify_email(email):
         return False
 
 
-def extractEmails(siteUrl):
-    req = Request(siteUrl, headers=headers)
-    try:
-        html = urlopen(req).read().decode("utf-8")
-        regex = r"([a-zA-Z0-9_.+-]+@[a-pr-zA-PRZ0-9-]+\.[a-zA-Z0-9-.]+)"
-        for email in re.findall(regex, html):
-            if email.lower() not in allEmails:
-                if not email.endswith(('.', '.png', '.jpg', '.JPG', '.jpeg')):
-                    # if verify_email(email): # takes a long time
-                        allEmails.add(email.lower())
-    except:
-        pass
+def extractEmails(allIntLinks, return_dict):
+    for intLink in allIntLinks:
+        req = Request(intLink, headers=headers)
+        try:
+            html = urlopen(req).read().decode("utf-8")
+            regex = r"([a-zA-Z0-9_.+-]+@[a-pr-zA-PRZ0-9-]+\.[a-zA-Z0-9-.]+)"
+            for email in re.findall(regex, html):
+                if email.lower() not in allEmails:
+                    if not (email.endswith(('.', '.png', '.jpg', '.JPG', '.jpeg', '.gif', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.x')) or "sentry" in email):
+                        # if verify_email(email): # takes a long time
+                            allEmails.add(email.lower())
+        except:
+            pass
+    return_dict[0] = "\n".join(list(allEmails))
 
-with open(in_path) as f:
+
+with open(in_path, "r") as f:
     fieldnames = ['portfolio', 'website', 'year', 'summary']
     reader = csv.DictReader(f, fieldnames=fieldnames)
+    next(reader)
 
-    exists = False
-    number_of_rows_to_skip = 1
-    if os.path.isfile(out_path):
-        exists = True
-        length = len(list(csv.reader(open(out_path))))
-        number_of_rows_to_skip = length if length > 1 else 1 # length + 1 ??? to skip the last row that might have taken too long
-
-    with open(out_path, "a+") as f1:
+    with open(out_path, "w") as f1:
         fieldnames1 = ['portfolio', 'website', 'year', 'emails', 'summary']
         writer = csv.DictWriter(f1, fieldnames=fieldnames1)
+        writer.writeheader()
 
-        if not exists:
-            writer.writeheader()
-
-        print("number of rows to skip: " + str(number_of_rows_to_skip))
-        for i in range(number_of_rows_to_skip):
-            next(reader)
-
-        idx = 1
+        line = 2
         for row in reader:
-            print(str(idx) + '. ' + time.strftime("%H:%M:%S", time.localtime()))
+            print(str(line) + ". " + row['portfolio'])
             allIntLinks = set()
             allEmails = set()
             print(row['website'])
+
             if len(row['website']):
                 allIntLinks.add(row['website'])
                 getAllInternalLinks(row['website'])
 
-                for intLink in allIntLinks:
-                    extractEmails(intLink)
+                manager = multiprocessing.Manager()
+                return_dict = manager.dict()
+                p = multiprocessing.Process(target=extractEmails, args=(allIntLinks, return_dict))
+                p.start()
 
-                emails = "\n".join(list(allEmails))
-                row['emails'] = emails
-                row['profolio'] = row['profolio'].strip()
-                writer.writerow(row)
-                f1.flush()
-                print(emails)
-            idx+=1
+                p.join(TIMEOUT)
+
+                if p.is_alive():
+                    print("Time out!")
+                    p.terminate()
+
+            emails = return_dict.values()[0]
+            row['emails'] = emails
+            row['portfolio'] = row['portfolio'].strip()
+            writer.writerow(row)
+            f1.flush()
+            print(emails)
+            line += 1
