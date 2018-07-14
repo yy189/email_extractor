@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a54d9373-9df2-488c-af4e-e773ebe3a21c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Y Combinator.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/email_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/email_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ycombinator_result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ycombinator_result.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +21,8 @@
       <file leaf-file-name="email_extractor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/email_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="117" column="44" lean-forward="true" selection-start-line="117" selection-start-column="44" selection-end-line="117" selection-end-column="44" />
+            <state relative-caret-position="-158">
+              <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -89,8 +89,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="739" />
-    <option name="y" value="166" />
+    <option name="x" value="265" />
+    <option name="y" value="29" />
     <option name="width" value="1000" />
     <option name="height" value="698" />
   </component>
@@ -200,20 +200,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="739" y="166" width="1000" height="698" extended-state="0" />
-    <editor active="true" />
+    <frame x="265" y="29" width="1000" height="698" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978355" visible="true" weight="0.26762003" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294509" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50051075" side_tool="true" weight="0.23128119" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49948928" visible="true" weight="0.23128119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49948928" visible="true" weight="0.23128119" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3294509" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" sideWeight="0.5021645" side_tool="true" visible="true" weight="0.26762003" />
+      <window_info active="true" id="Favorites" order="2" sideWeight="0.5021645" side_tool="true" visible="true" weight="0.26762003" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -337,8 +336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/email_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="117" column="44" lean-forward="true" selection-start-line="117" selection-start-column="44" selection-end-line="117" selection-end-column="44" />
+        <state relative-caret-position="-158">
+          <caret line="94" column="26" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>

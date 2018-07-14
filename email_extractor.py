@@ -8,7 +8,7 @@ import dns.resolver
 import csv
 import multiprocessing
 
-TIMEOUT = 300
+TIMEOUT = 120
 
 in_path = "ycombinator.csv"
 out_path = "ycombinator_result.csv"
@@ -32,7 +32,7 @@ def getinternalLinks(bsObj, includeUrl):
 def getAllInternalLinks(siteUrl):
     req = Request(siteUrl, headers=headers)
     try:
-        html = urlopen(req)
+        html = urlopen(req, timeout=20)
         domain = urlparse(siteUrl).scheme + "://" + urlparse(siteUrl).netloc
         bsObj = BeautifulSoup(html, "html.parser")
         internalLinks = getinternalLinks(bsObj, domain)
@@ -68,19 +68,22 @@ def verify_email(email):
 
 
 def extractEmails(allIntLinks, return_dict):
+    allEmails = set()
     for intLink in allIntLinks:
         req = Request(intLink, headers=headers)
         try:
-            html = urlopen(req).read().decode("utf-8")
+            html = urlopen(req, timeout=20).read().decode("utf-8")
             regex = r"([a-zA-Z0-9_.+-]+@[a-pr-zA-PRZ0-9-]+\.[a-zA-Z0-9-.]+)"
             for email in re.findall(regex, html):
-                if email.lower() not in allEmails:
+                email = email.lower()
+                if email not in allEmails:
                     if not (email.endswith(('.', '.png', '.jpg', '.JPG', '.jpeg', '.gif', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.x')) or "sentry" in email):
                         # if verify_email(email): # takes a long time
-                            allEmails.add(email.lower())
+                            allEmails.add(email)
         except:
             pass
     return_dict[0] = "\n".join(list(allEmails))
+
 
 
 with open(in_path, "r") as f:
@@ -93,11 +96,10 @@ with open(in_path, "r") as f:
         writer = csv.DictWriter(f1, fieldnames=fieldnames1)
         writer.writeheader()
 
-        line = 2
+        idx = 1
         for row in reader:
-            print(str(line) + ". " + row['portfolio'])
+            print(str(idx) + ". " + row['portfolio'])
             allIntLinks = set()
-            allEmails = set()
             print(row['website'])
 
             if len(row['website']):
@@ -106,6 +108,7 @@ with open(in_path, "r") as f:
 
                 manager = multiprocessing.Manager()
                 return_dict = manager.dict()
+                return_dict[0] = ""
                 p = multiprocessing.Process(target=extractEmails, args=(allIntLinks, return_dict))
                 p.start()
 
@@ -121,4 +124,4 @@ with open(in_path, "r") as f:
             writer.writerow(row)
             f1.flush()
             print(emails)
-            line += 1
+            idx += 1
