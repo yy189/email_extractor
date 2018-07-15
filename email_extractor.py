@@ -10,8 +10,8 @@ import multiprocessing
 
 TIMEOUT = 120
 
-in_path = "acceleprise.csv"
-out_path = "acceleprise_result.csv"
+in_path = "alchemist_accelerator.csv"
+out_path = "alchemist_accelerator_result.csv"
 
 headers = {"User-Agent": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"}
 
@@ -30,8 +30,8 @@ def getinternalLinks(bsObj, includeUrl):
 
 
 def getAllInternalLinks(siteUrl):
-    req = Request(siteUrl, headers=headers)
     try:
+        req = Request(siteUrl, headers=headers)
         html = urlopen(req, timeout=20)
         domain = urlparse(siteUrl).scheme + "://" + urlparse(siteUrl).netloc
         bsObj = BeautifulSoup(html, "html.parser")
@@ -69,8 +69,8 @@ def verify_email(email):
 
 def extractEmails(allIntLinks, return_dict):
     for intLink in allIntLinks:
-        req = Request(intLink, headers=headers)
         try:
+            req = Request(intLink, headers=headers)
             html = urlopen(req, timeout=20).read().decode("utf-8")
             regex = r"([a-zA-Z0-9_.+-]+@[a-pr-zA-PRZ0-9-]+\.[a-zA-Z0-9-.]+)"
             for email in re.findall(regex, html):
@@ -84,6 +84,8 @@ def extractEmails(allIntLinks, return_dict):
     return_dict[0] = "\n".join(list(allEmails))
 
 
+manager = multiprocessing.Manager()
+return_dict = manager.dict()
 
 with open(in_path, "r") as f:
     fieldnames = ['portfolio', 'website', 'year', 'summary']
@@ -100,15 +102,13 @@ with open(in_path, "r") as f:
             print(str(idx) + ". " + row['portfolio'])
             allIntLinks = set()
             allEmails = set()
+            return_dict[0] = ""
             print(row['website'])
 
             if len(row['website']):
                 allIntLinks.add(row['website'])
                 getAllInternalLinks(row['website'])
 
-                manager = multiprocessing.Manager()
-                return_dict = manager.dict()
-                return_dict[0] = ""
                 p = multiprocessing.Process(target=extractEmails, args=(allIntLinks, return_dict))
                 p.start()
 
