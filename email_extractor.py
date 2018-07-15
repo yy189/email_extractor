@@ -10,8 +10,8 @@ import multiprocessing
 
 TIMEOUT = 120
 
-in_path = "500startups.csv"
-out_path = "500startups_result.csv"
+in_path = "acceleprise.csv"
+out_path = "acceleprise_result.csv"
 
 headers = {"User-Agent": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"}
 
@@ -76,7 +76,7 @@ def extractEmails(allIntLinks, return_dict):
             for email in re.findall(regex, html):
                 email = email.lower()
                 if email not in allEmails:
-                    if not (email.endswith(('.', '.png', '.jpg', '.JPG', '.jpeg', '.gif', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.x', '.webm', '.svg', "example.com", "email.com", "yourdomain.com", "yourself.com")) or "sentry" in email):
+                    if not (email.endswith(('.', '.png', '.jpg', '.JPG', '.jpeg', '.gif', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.x', '.webm', '.webp', '.svg', "example.com", "email.com", "yourdomain.com", "yourself.com", "domain.com")) or "sentry" in email):
                         # if verify_email(email): # takes a long time
                             allEmails.add(email)
         except:
